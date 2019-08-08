@@ -30,7 +30,22 @@ git \
 bash \
 ca-certificates \
 make \
-build-base
+build-base \
+libffi-dev \ 
+postgresql-dev \
+linux-headers \
+libc-dev \
+musl-dev \
+python-dev \
+py-pip
+
+# *****************************PYENV INSTALL****************************
+RUN curl https://pyenv.run | bash 
+ENV PATH //.pyenv/bin:$PATH
+RUN pyenv install 3.7.2
+
+# *****************************PYENV INSTALL****************************
+RUN pip install pipenv
 
 # *****************************JSONNET INSTALL****************************
 # Installation of https://jsonnet.org/ 

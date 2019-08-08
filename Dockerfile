@@ -37,11 +37,16 @@ linux-headers \
 libc-dev \
 musl-dev \
 python-dev \
-py-pip
+py-pip \
+zlib-dev \
+jpeg-dev \
+bzip2-dev \
+readline-dev \
+sqlite-dev
 
 # *****************************PYENV INSTALL****************************
 RUN curl https://pyenv.run | bash 
-ENV PATH //.pyenv/bin:$PATH
+ENV PATH /root/.pyenv/bin:$PATH
 RUN pyenv install 3.7.2
 
 # *****************************PYENV INSTALL****************************
@@ -51,7 +56,7 @@ RUN pip install pipenv
 # Installation of https://jsonnet.org/ 
 # jsonnet will be installed to /opt/jsonnet and added to the path
 # ************************************************************************
-RUN mkdir /opt/jsonnet && \
+RUN mkdir -p /opt/jsonnet && \
 cd /opt/jsonnet && \
 git clone https://github.com/google/jsonnet.git . && \
 make
